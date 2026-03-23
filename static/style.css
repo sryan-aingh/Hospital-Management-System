@@ -1,0 +1,62 @@
+/* 🌈 Background */
+body {
+    background: linear-gradient(135deg, #0f1d20, #081522);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* 🧊 Glass Card */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    border: none;
+    color: white;
+}
+
+/* ✨ Headings */
+h1, h2, h3, h4 {
+    color: rgb(197, 255, 252);
+    font-weight: bold;
+}
+
+/* 🔘 Premium Button */
+.btn-custom {
+    background: linear-gradient(45deg, #7df0ff, #79e0ff);
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 32px;
+    padding: 20px 40px;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.btn-custom:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* 🧾 Inputs */
+input, select {
+    border-radius: 10px !important;
+    padding: 10px !important;
+    border: none;
+}
+
+/* 📊 Table */
+table {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* 🔻 Footer */
+.footer {
+    background: #111;
+    font-size: 14px;
+}
+
+/* 🔷 Navbar */
+.navbar {
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+}
