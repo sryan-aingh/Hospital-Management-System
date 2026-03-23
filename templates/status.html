@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2 class="text-center mb-4">Check Appointment Status</h2>
+
+<form method="POST" class="card p-4 shadow col-md-4 mx-auto">
+    <input type="text" name="request_id" class="form-control mb-3" placeholder="Enter Request ID" required>
+    <button class="btn btn-custom w-100">Check</button>
+</form>
+
+<div class="mt-4 text-center">
+
+    {% if data %}
+        <h4>Name: {{ data[0] }}</h4>
+        <h4>Doctor: Dr. {{ data[4] }} {{ data[5] }}</h4>
+        <h4>Status: {{ data[3] }}</h4>
+
+        {% if approved_data %}
+            <h3 class="text-success mt-3">
+                Final Appointment:
+                <b>{{ approved_data[0] }} at {{ approved_data[1] }}</b>
+            </h3>
+        {% endif %}
+    {% elif data == "invalid" %}
+        <h3 style="color:red;">Invalid Request ID</h3>
+    {% endif %}
+
+</div>
+
+{% endblock %}

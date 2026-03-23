@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>Book Appointment</h2>
+
+<form method="POST" class="card p-4 shadow col-md-6 mx-auto">
+
+    <input type="text" name="name" class="form-control mb-3" placeholder="Name">
+    <input type="number" name="age" class="form-control mb-3" placeholder="Age">
+    <input type="text" name="phone" class="form-control mb-3" placeholder="Phone">
+
+    <select name="staff_id" class="form-control mb-3">
+        {% for doc in doctors %}
+        <option value="{{ doc[0] }}">
+            Dr. {{ doc[1] }} {{ doc[2] }}
+        </option>
+        {% endfor %}
+    </select>
+
+    <input type="date" name="date" class="form-control mb-3">
+    <input type="text" name="time" class="form-control mb-3" placeholder="Time">
+
+    <button class="btn btn-custom w-100">Submit</button>
+</form>
+
+{% endblock %}

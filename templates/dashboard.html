@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2 class="text-center mb-4">Admin Dashboard</h2>
+
+<div class="text-center mb-4">
+    <button class="btn btn-custom me-2" onclick="showSection('requests')">
+        Appointment Requests
+    </button>
+
+    <button class="btn btn-custom" onclick="showSection('staff')">
+        Staff Data
+    </button>
+</div>
+
+<!-- 📩 REQUESTS TABLE -->
+<div id="requests" class="collapse show">
+    <div class="card p-3 shadow">
+        <h4>Pending Requests</h4>
+
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Doctor</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for req in requests %}
+                <tr>
+                    <td>{{ req[0] }}</td>
+                    <td>{{ req[1] }}</td>
+                    <td>Dr. {{ req[4] }} {{ req[5] }}</td>
+                    <td>{{ req[2] }}</td>
+                    <td>{{ req[3] }}</td>
+                    <td>
+                        <a href="/approve/{{ req[0] }}" class="btn btn-success btn-sm">✔</a>
+                        <a href="/reject/{{ req[0] }}" class="btn btn-danger btn-sm">✖</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- 👨‍⚕️ STAFF TABLE -->
+<div id="staff" class="collapse">
+    <div class="card p-3 shadow">
+        <h4>Staff Members</h4>
+
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Specialization</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for s in staff %}
+                <tr>
+                    <td>{{ s[0] }}</td>
+                    <td>{{ s[1] }} {{ s[2] }}</td>
+                    <td>{{ s[3] }}</td>
+                    <td>{{ s[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+function showSection(section) {
+    let req = document.getElementById("requests");
+    let staff = document.getElementById("staff");
+
+    if (section === "requests") {
+        req.classList.add("show");
+        staff.classList.remove("show");
+    } else {
+        staff.classList.add("show");
+        req.classList.remove("show");
+    }
+}
+</script>
+{% endblock %}
